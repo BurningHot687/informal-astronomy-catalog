@@ -32,4 +32,6 @@ I have also started to organize by mission, and then what I deem to be priority,
     * [Full Webpage](https://bjj.mmedia.is/data/jupiter_css/index.html)
     * [Full Quality Image](https://bjj.mmedia.is/data/jupiter_css/jupiter_css.jpg)
 
+---
+
 *Authored by BurningHot687*
