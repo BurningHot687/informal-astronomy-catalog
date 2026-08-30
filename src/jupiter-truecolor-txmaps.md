@@ -25,7 +25,7 @@ This is a collection of true color texture maps for the planet Jupiter I have fo
 ## Juno Overlay over Cassini
 ![Jupiter Cassini Preview Image](https://bjj.mmedia.is/data/jupiter_css/jupiter_css_m.jpg)
 * Creator: Björn Jónsson
-* License: Open if non-commercial, attribution expected, see [here](https://bjj.mmedia.is/acknow.html) for more details
+* License: Open if non-commercial, ask for commercial. Attribution expected, see [here](https://bjj.mmedia.is/acknow.html) for more details
 * Sources:
     * [Full Webpage](https://bjj.mmedia.is/data/jupiter_css/index.html)
     * [Full Quality Image](https://bjj.mmedia.is/data/jupiter_css/jupiter_css.jpg)
