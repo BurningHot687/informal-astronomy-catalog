@@ -1,6 +1,8 @@
 # Jupiter Texture Maps
 This is a collection of true color texture maps for the planet Jupiter I have found across the internet, lazily put together, including my own texture maps.
 
+I have also started to organize by mission, and then what I deem to be priority, so it is a bit cleaner to look through.
+
 ## Hubble OPAL Cycle 32a v2
 ![Jupiter OPAL Cycle 32 Preview Image](../assets/jupiter-cycle32-v2-preview.jpg)
 * Creator: BurningHot687
