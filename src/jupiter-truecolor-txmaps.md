@@ -6,7 +6,7 @@ I have also started to organize by mission, and then what I deem to be priority,
 
 ## Hubble Outer Planet Atmospheres Legacy (OPAL)
 
-### Hubble OPAL Cycle 32a v4
+### BH687 Hubble OPAL Cycle 32a v4
 
 ![Jupiter OPAL Cycle 32 Preview Image](../assets/jupiter-cycle32-v4-preview.jpg)
 
@@ -15,7 +15,7 @@ I have also started to organize by mission, and then what I deem to be priority,
 - Source: [Full Release](https://github.com/BurningHot687/open-astronomy-catalog/releases/tag/2026.08)
 - Note: adds `f502n` to be used in the synthetic green formula $0.59G + 0.41R$ to map closer to human eyesight, and uses Asinh Transformation to map colors nonlinearly.
 
-### Hubble OPAL Cycle 32a v3
+### BH687 Hubble OPAL Cycle 32a v3
 
 ![Jupiter OPAL Cycle 32 Preview Image](../assets/jupiter-cycle32-v3-preview.jpg)
 
@@ -24,7 +24,7 @@ I have also started to organize by mission, and then what I deem to be priority,
 - Source: [Full Release](https://github.com/BurningHot687/open-astronomy-catalog/releases/tag/2026.08)
 - Note: nearly the same as v2, but utilizes $0.5R + 0.5B$ and used Generalized Hyperbolic Stretch Transformation to map colors nonlinearly.
 
-### Hubble OPAL Cycle 32a v2
+### BH687 Hubble OPAL Cycle 32a v2
 
 ![Jupiter OPAL Cycle 32 Preview Image](../assets/jupiter-cycle32-v2-preview.jpg)
 
