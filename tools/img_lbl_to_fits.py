@@ -61,7 +61,7 @@ def process_file(file_path: Path) -> None:
 
         hdu = fits.PrimaryHDU(image_data, header=fits_header)
 
-        output_path = file_path.with_suffix(".fits")
+        output_path: Path = file_path.with_suffix(".fits")
         hdu.writeto(output_path, overwrite=True)
         print(f"Saved `{output_path.name}`")
     except Exception as e:
@@ -85,9 +85,33 @@ def main() -> None:
 
     if target_path.is_file():
         process_file(target_path)
-    else:
-        print("[TODO] Will add directory path usage later")
-        sys.exit(1)
+    elif target_path.is_dir():
+        all_labels: list[Path] = list(
+            set(target_path.glob("*.lbl")) | set(target_path.glob("*.LBL"))
+        )
+
+        # What? This is possible, cool.
+        # I am used to someting more akin to
+        # if len(all_labels) == 0
+        if not all_labels:
+            print(f"[warn] No files found in `{target_path}`")
+            sys.exit(0)
+
+        print(f"Found {len(all_labels)} labels. Starting batch conversion...")
+
+        success_count = 0
+        for label in all_labels:
+            try:
+                print(f"-> Starting conversion of {label}")
+                process_file(label)
+                success_count += 1
+            except SystemExit:
+                print(f"[ERROR] Skipped {label}")
+                continue
+
+        print(
+            f"Batch conversion completed. {success_count}/{len(all_labels)} successful"
+        )
 
 
 if __name__ == "__main__":
