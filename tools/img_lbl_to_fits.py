@@ -1,7 +1,11 @@
 # /// script
 # requires-python = ">=3.11"
-# dependencies = []
+# dependencies = [
+#   "astropy>=8.0",
+#   "pdr>=1.4"
+# ]
 # ///
+
 
 """
 # Combine `.img` and `.lbl` into `.fits`
@@ -24,11 +28,66 @@ uv run tools/img_lbl_to_fits.py <path>
 - Author: BurningHot687
 - License: MIT
 - Version: 0.1.0
+
+Gemini 3.5 Flash was used for a portion of the code. Treat it accordingly. After all, I am learning too, and this is the only way I got for a while.
 """
 
+import sys
+from pathlib import Path
 
-def main():
-    print("Hello world")
+import pdr
+from astropy.io import fits
+
+
+def process_file(file_path: Path) -> None:
+    """Accepts a single file and converts into a `.fits` file"""
+    print(f"Reading `{file_path.name}`")
+
+    try:
+        dataset = pdr.read(str(file_path))
+        print(f"Keys: {list(dataset.keys())}")
+
+        # Apparently IMAGE key is actually image, who would've guessed?
+        image_data = dataset["IMAGE"]
+        fits_header = fits.Header()
+        pds_metadata = dataset.metadata
+
+        for key, value in pds_metadata.items():
+            # I have no clue what I'm doing, forgive me later
+            if not isinstance(value, (str, int, float)):
+                value = str(value)
+
+            fits_header[key] = value
+
+        hdu = fits.PrimaryHDU(image_data, header=fits_header)
+
+        output_path = file_path.with_suffix(".fits")
+        hdu.writeto(output_path, overwrite=True)
+        print(f"Saved `{output_path.name}`")
+    except Exception as e:
+        print(f"[ERROR : pdr] {e}")
+        sys.exit(1)
+
+
+def main() -> None:
+    if len(sys.argv) < 2:
+        print(
+            "[ERROR: in] Path not provided\n\nUsage:\n    `uv run tools/img_lbl_to_fits.py <path>"
+        )
+        sys.exit(1)
+
+    raw_input: str = sys.argv[1]
+    target_path: Path = Path(raw_input).expanduser().resolve()
+
+    if not target_path.exists():
+        print(f"[ERROR: path] Path `{target_path}` does not exist")
+        sys.exit(1)
+
+    if target_path.is_file():
+        process_file(target_path)
+    else:
+        print("[TODO] Will add directory path usage later")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
