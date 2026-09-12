@@ -1,14 +1,17 @@
 # License
+
 This whole repository and off-site links cause major licensing differences, so please read carefully. I have tried to tailor this towards all audiences who would view this repository.
 
 Copyright (c) 2026 BurningHot687 and Project Contributors
 
 ## Repository
+
 The following applies to **anything** directly part of this repository, such as the directories, images, code, releases, GitHub Pages, etc.
 
 ### Creative Assets
 
 All text, audio, images, and other creative assets within this repository are licensed under [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). This essentially says you can use this for anything as long as you:
+
 1. Credit the original creator, license, and note any changes made.
 2. Share any modified image under the same license.
 3. Don't limit anything the license permits when distributing.
@@ -22,6 +25,7 @@ See [here](ROADMAP.md) for an explanation, especially if there isn't any code as
 See [APPENDIX B](#appendix-b) for full license text.
 
 ## Off-site
+
 I cannot guarantee anything about any off-site links, so please be wary. I will attempt to warn about licenses as best as I can.
 
 ## APPENDIX A
@@ -468,4 +472,4 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
-*Authored by BurningHot687*
+_Authored by BurningHot687_
