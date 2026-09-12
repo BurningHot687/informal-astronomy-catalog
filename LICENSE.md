@@ -20,7 +20,7 @@ See [APPENDIX A](#appendix-a) for full license text.
 
 ### Code Assets
 
-See [here](ROADMAP.md) for an explanation, especially if there isn't any code assets. I planned for a future GitHub Page or some other code to be stored here in case someone needs it, and if so, it will be licensed under the MIT license.
+All code or programming-related assets within this repository are licensed under the **MIT license**. This essentially says you can use the code for anything as long as you keep the original license and copyright notice on the specific code used, and the code has no guarantee to be functional and you cannot blame the original developer(s).
 
 See [APPENDIX B](#appendix-b) for full license text.
 
