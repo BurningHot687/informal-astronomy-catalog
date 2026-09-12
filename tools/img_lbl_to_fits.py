@@ -9,6 +9,7 @@
 
 """
 # Combine `.img` and `.lbl` into `.fits`
+> Very buggy, haven't tested it that well
 
 Enter a file location and it will combine the two into a `.fits`. You may enter either the `.img` or the `.lbl`, provided they have the same file name and are in the same directory.
 
