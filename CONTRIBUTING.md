@@ -36,7 +36,7 @@ _Note: By submitting a Pull Request, you agree that any code or scripts you cont
 
 ## Copyright Notice
 
-We are a directory and educational resource. **Do not upload files that you do not own.**
+This is a directory and educational resource. **Do not upload files that you do not own.**
 
 If you want to share proprietary data, do not upload their actual content. Instead, submit an Issue with a **link** to their website (or contact if not possible) so we can properly catalog them without violating their copyright.
 
