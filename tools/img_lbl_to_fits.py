@@ -11,6 +11,9 @@
 # Combine `.img` and `.lbl` into `.fits`
 > Very buggy, haven't tested it that well
 
+> [!WARNING]
+> This is a buggy prototype which only worked for specific cases. BurningHot687 created this **before** they realized that GDAL existed. Please use GDAL instead unless you are sure about dealing with unnecessary code.
+
 Enter a file location and it will combine the two into a `.fits`. You may enter either the `.img` or the `.lbl`, provided they have the same file name and are in the same directory.
 
 You may also enter a directory location and it will automatically loop over all files and combine them.
