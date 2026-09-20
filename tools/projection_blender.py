@@ -41,11 +41,23 @@ import matplotlib.pyplot as plt
 import numpy as np
 from pyproj import Transformer
 
+"""
+As more projections are added, it may be a good idea to break the dictionary apart
+and combine the dictionaries in `projections_list` to make it easier to browse.
+This could be done simply by categorizing by type of projection.
+"""
 projections_list: dict[str, str] = {
     "mercator": "EPSG:3857",
     "mollweide": "ESRI:54009",
     "equirectangular": "EPSG:4326",
     "aitoff": "ESRI:54043",
+    "lambert_cea": "+proj=cea +lat_ts=0 +lon_0=0",
+    "sinusoidal": "+proj=sinu +lon_0=0",
+    "azimuthal_equidistant": "+proj=aeqd +lat_0=90 +lon_0=0",
+    "werner": "+proj=bonne +lat_1=90 +lon_0=0",
+    "collignon": "+proj=collg +lon_0=0",
+    "loximutual": "+proj=loxim +lat_1=40 +lon_0=0",
+    "robinson": "+proj=robin +lon_0=0",
 }
 
 
