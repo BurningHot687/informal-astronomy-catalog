@@ -106,7 +106,7 @@ def main():
         sys.exit(1)
 
     print(
-        f"=> New Blended Projection : Blend Factor {t} : Projections {projection_a} & {projection_b}"
+        f"--> New Blended Projection : Blend Factor {t} : Projections {projection_a} & {projection_b}"
     )
 
     formula_a = Transformer.from_crs("EPSG:4326", code_a, always_xy=True)
@@ -120,7 +120,9 @@ def main():
     x_blend = (1.0 - t) * x_a + t * x_b
     y_blend = (1.0 - t) * y_a + t * y_b
 
-    print(f"=> Test point: Lat {lat} Long {long} : X {x_blend:.3f} Y {y_blend:.3f}")
+    print(
+        f"==> Test point (Sydney, Australia): Lat {lat} Long {long} : X {x_blend:.3f} Y {y_blend:.3f}"
+    )
     print("--> Opening projection grid viewer...")
 
     samples_lat = np.linspace(-80, 80, 100)
