@@ -112,7 +112,7 @@ def main():
     formula_a = Transformer.from_crs("EPSG:4326", code_a, always_xy=True)
     formula_b = Transformer.from_crs("EPSG:4326", code_b, always_xy=True)
 
-    # A test point to be removed later: Sydney, Australia?
+    # Test point: Sydney, Australia
     lat, long = -33.86, 151.21
     x_a, y_a = normalize_coordinates(formula_a, lat, long)
     x_b, y_b = normalize_coordinates(formula_b, lat, long)
