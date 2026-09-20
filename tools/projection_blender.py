@@ -44,16 +44,33 @@ projections_list: dict[str, str] = {
 }
 
 
+def normalize_coordinates(
+    transform: Transformer, lat: float, long: float
+) -> tuple[float, float]:
+    """
+    Normalizes a Transformer's output to get a more accurate blend between projections
+    """
+
+    min_x, min_y, max_x, max_y = transform.transform_bounds(-180.0, -87.5, 180.0, 87.5)
+
+    raw_x, raw_y = transform.transform(long, lat)
+
+    max_scale_x = max(abs(min_x), abs(max_x))
+    max_scale_y = max(abs(min_y), abs(max_y))
+
+    return (raw_x / max_scale_x, raw_y / max_scale_y)
+
+
 def main():
     # === EDIT START ===
 
     # `t` is the blend between projection A and projection B
     # Interval [0.0, 1.0]
-    t: float = 0.0
+    t: float = 0.5
 
     # Choose which projection either a or b should be
     # Use `projections_list` to find the names
-    projection_a: str = "mercator"
+    projection_a: str = "equirectangular"
     projection_b: str = "mercator"
 
     # === EDIT STOP ===
@@ -80,8 +97,8 @@ def main():
 
     # A test point to be removed later: Sydney, Australia?
     lat, long = -33.86, 151.21
-    x_a, y_a = formula_a.transform(long, lat)
-    x_b, y_b = formula_b.transform(long, lat)
+    x_a, y_a = normalize_coordinates(formula_a, lat, long)
+    x_b, y_b = normalize_coordinates(formula_b, lat, long)
 
     x_blend = (1.0 - t) * x_a + t * x_b
     y_blend = (1.0 - t) * y_a + t * y_b
