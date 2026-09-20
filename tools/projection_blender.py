@@ -9,7 +9,11 @@
 """
 # Blend between two map projections and calculate simple distortion factor
 
-Simply edit the code in the marked location '=== EDIT START ===' and '=== EDIT STOP ===' to then run and see a result. It's very dumb, and it very much works
+Simply edit the code in the marked location '=== EDIT START ===' and '=== EDIT STOP ===' to then run and see a result. It's very dumb, and it very much works.
+
+This was created for 2 reasons:
+1. To make experimenting with hybrid projections much easier and more varied
+2. To attempt to find a better map projection than Winkel Tripel without having to flip a disc over. This is based on the Princeton study, which should hopefully be contacted at some point to investigate the matter more scientifically. You may find the study [here](https://arxiv.org/abs/2102.08176v1)
 
 ## Pre-requisites
 You need to use `uv` to run this file. You can find installation info [here](https://docs.astral.sh/uv/getting-started/installation/).
