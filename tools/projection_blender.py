@@ -37,18 +37,21 @@ Gemini 3.5 Flash was used for a portion of the code. Treat it accordingly. After
 
 import sys
 
+import matplotlib.pyplot as plt
+import numpy as np
 from pyproj import Transformer
 
 projections_list: dict[str, str] = {
     "mercator": "EPSG:3857",
     "mollweide": "ESRI:54009",
     "equirectangular": "EPSG:4326",
+    "aitoff": "ESRI:54043",
 }
 
 
 def normalize_coordinates(
-    transform: Transformer, lat: float, long: float
-) -> tuple[float, float]:
+    transform: Transformer, lat: float | np.ndarray, long: float | np.ndarray
+) -> tuple[float | np.ndarray, float | np.ndarray]:
     """
     Normalizes a Transformer's output to get a more accurate blend between projections
     """
@@ -58,9 +61,9 @@ def normalize_coordinates(
     raw_x, raw_y = transform.transform(long, lat)
 
     max_scale_x = max(abs(min_x), abs(max_x))
-    max_scale_y = max(abs(min_y), abs(max_y))
+    # max_scale_y = max(abs(min_y), abs(max_y))
 
-    return (raw_x / max_scale_x, raw_y / max_scale_y)
+    return (raw_x / max_scale_x, raw_y / max_scale_x)
 
 
 def main():
@@ -72,8 +75,8 @@ def main():
 
     # Choose which projection either a or b should be
     # Use `projections_list` to find the names
-    projection_a: str = "equirectangular"
-    projection_b: str = "mercator"
+    projection_a: str = "aitoff"
+    projection_b: str = "equirectangular"
 
     # === EDIT STOP ===
 
@@ -106,6 +109,44 @@ def main():
     y_blend = (1.0 - t) * y_a + t * y_b
 
     print(f"=> Test point: Lat {lat} Long {long} : X {x_blend:.3f} Y {y_blend:.3f}")
+    print("--> Opening projection grid viewer...")
+
+    samples_lat = np.linspace(-80, 80, 100)
+    samples_long = np.linspace(-180, 180, 100)
+
+    # Grid of 10 degrees each? Not sure if that's the best explanation
+    lat_lines = np.linspace(-80, 80, 17)
+    long_lines = np.linspace(-180, 180, 37)
+
+    plt.figure(figsize=(10, 5))
+
+    for target_lat in lat_lines:
+        lat_array = np.full_like(samples_long, target_lat)
+
+        xa, ya = normalize_coordinates(formula_a, lat_array, samples_long)
+        xb, yb = normalize_coordinates(formula_b, lat_array, samples_long)
+
+        x_blend = (1.0 - t) * xa + t * xb
+        y_blend = (1.0 - t) * ya + t * yb
+        plt.plot(x_blend, y_blend, color="blue", alpha=0.4, lw=1)
+
+    for target_long in long_lines:
+        long_array = np.full_like(samples_lat, target_long)
+
+        xa, ya = normalize_coordinates(formula_a, samples_lat, long_array)
+        xb, yb = normalize_coordinates(formula_b, samples_lat, long_array)
+
+        x_blend = (1.0 - t) * xa + t * xb
+        y_blend = (1.0 - t) * ya + t * yb
+        plt.plot(x_blend, y_blend, color="blue", alpha=0.4, lw=1)
+
+    plt.title(
+        f"Hybrid Projection Gridline Map ({projection_a} + {projection_b} @ t={t})"
+    )
+    plt.axis("equal")
+    plt.axis("off")
+    plt.tight_layout()
+    plt.show()
 
 
 if __name__ == "__main__":
