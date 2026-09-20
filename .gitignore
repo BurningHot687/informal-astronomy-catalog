@@ -1,0 +1,37 @@
+# === PYTHON ===
+__pycache__/
+*.pyc
+
+# -- UV --
+.venv/
+uv.lock
+
+# === ENV ===
+
+# -- MAC --
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# -- WINDOWS --
+Thumbs.db
+ehthumbs.db
+DumpStack.log.tmp
+
+# -- LINUX --
+.fuse_hidden*
+.directory
+
+# === IDE ===
+
+# -- ZED --
+.zed/
+
+# -- VSCODE --
+.vscode/
+!.vscode/tasks.json
+!.vscode/extensions.json
+
+# -- JETBRAINS --
+.idea/
+*.iml
