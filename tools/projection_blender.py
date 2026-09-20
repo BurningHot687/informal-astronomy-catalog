@@ -37,7 +37,11 @@ import sys
 
 from pyproj import Transformer
 
-projections_list: dict[str, str] = {"mercator": "EPSG:3857", "mollweide": "ESRI:54009"}
+projections_list: dict[str, str] = {
+    "mercator": "EPSG:3857",
+    "mollweide": "ESRI:54009",
+    "equirectangular": "EPSG:4326",
+}
 
 
 def main():
