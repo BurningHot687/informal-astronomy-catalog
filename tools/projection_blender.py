@@ -31,6 +31,8 @@ uv run tools/projection_blender.py
 - Version: 0.1.0
 
 Gemini 3.5 Flash was used for a portion of the code. Treat it accordingly. After all, I am learning too, and this is the only way I got for a while.
+
+~~I am sure I am annoying people by writing Lat first, but like... I have no clue about what I'm doing so whatever lol~~
 """
 
 import sys
