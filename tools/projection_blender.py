@@ -33,6 +33,8 @@ uv run tools/projection_blender.py
 Gemini 3.5 Flash was used for a portion of the code. Treat it accordingly. After all, I am learning too, and this is the only way I got for a while.
 """
 
+import sys
+
 from pyproj import Transformer
 
 projections_list: dict[str, str] = {"mercator": "EPSG:3857", "mollweide": "ESRI:54009"}
@@ -52,9 +54,35 @@ def main():
 
     # === EDIT STOP ===
 
+    code_a: str | None = projections_list.get(projection_a)
+    code_b: str | None = projections_list.get(projection_b)
+
+    if not code_a or not code_b:
+        print(
+            "[ERROR : in] Could not find one of the projections. Please check for spelling errors and reference `projections_list`."
+        )
+        sys.exit(1)
+
+    if t > 1.0 or t < 0.0:
+        print(f"[ERROR : in] `t` is at {t}, which is outside of the range [0.0, 1.0].")
+        sys.exit(1)
+
     print(
         f"=> New Blended Projection : Blend Factor {t} : Projections {projection_a} & {projection_b}"
     )
+
+    formula_a = Transformer.from_crs("EPSG:4326", code_a, always_xy=True)
+    formula_b = Transformer.from_crs("EPSG:4326", code_b, always_xy=True)
+
+    # A test point to be removed later: Sydney, Australia?
+    lat, long = -33.86, 151.21
+    x_a, y_a = formula_a.transform(long, lat)
+    x_b, y_b = formula_b.transform(long, lat)
+
+    x_blend = (1.0 - t) * x_a + t * x_b
+    y_blend = (1.0 - t) * y_a + t * y_b
+
+    print(f"=> Test point: Lat {lat} Long {long} : X {x_blend:.3f} Y {y_blend:.3f}")
 
 
 if __name__ == "__main__":
