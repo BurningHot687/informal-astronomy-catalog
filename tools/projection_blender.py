@@ -14,6 +14,12 @@ Simply edit the code in the marked locations '=== EDIT ===' to then run and see 
 ## Pre-requisites
 You need to use `uv` to run this file. You can find installation info [here](https://docs.astral.sh/uv/getting-started/installation/).
 
+## Usage
+
+```bash
+uv run tools/projection_blender.py
+```
+
 ## Info
 
 - Author: BurningHot687
