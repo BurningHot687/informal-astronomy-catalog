@@ -1,4 +1,4 @@
-# open-astronomy-catalog
+# informal-astronomy-catalog
 
 > A high schooler's collection of random astronomy information.
 > v0.1.0
@@ -18,7 +18,5 @@ See [here](LICENSE.md) for more information. Note that this repository does not 
 ## Contributing
 
 Please see [here](CONTRIBUTING.md), as this repository is a strange blend between one for artists, one for devs, and one for casuals, I suspect.
-
----
 
 _Authored by BurningHot687_
